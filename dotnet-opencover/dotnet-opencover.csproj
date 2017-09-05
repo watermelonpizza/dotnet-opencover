@@ -9,10 +9,16 @@
     <Title>A cli dotnet wrapper for OpenCover (requires OpenCover dependancy)</Title>
     <Description>
       Supplies a "dotnet opencover" cli call wrapper around OpenCover executable located in the packages folder.
-      This does not bundle in open cover itself. You need to include that as a depandancy.
+      This does not bundle in open cover itself. You need to include that as a dependency.
+
+      Currently assumes OpenCover is located in %userprofile%/.nuget/packages/opencover/[highestversion]/tools/OpenCover.Console.exe
     </Description>
+    <Summary>
+      Supplies a "dotnet opencover" cli call wrapper around OpenCover executable located in the packages folder.
+      This does not bundle in open cover itself. You need to include that as a dependency.
+    </Summary>
     <RepositoryUrl>https://github.com/watermelonpizza/dotnet-opencover</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/watermelonpizza/argparse/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageTags>cli, tools, opencover, coverage</PackageTags>
+    <PackageTags>cli tools opencover coverage</PackageTags>
   </PropertyGroup>
 </Project>
