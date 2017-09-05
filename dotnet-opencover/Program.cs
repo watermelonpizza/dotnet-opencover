@@ -17,6 +17,12 @@ namespace dotnet_opencover
         {
             var userProfile = Environment.GetEnvironmentVariable("userprofile");
 
+            if (string.IsNullOrEmpty(userProfile))
+            {
+                Console.Error.WriteLine($"Couldn't find userprofile folder at environment variable 'userprofile'. Used to find packages in %userprofile%/.nuget/packages/");
+                return 1;
+            }
+
             var pathToExe = Path.Combine(userProfile, DotNugetFolder);
             pathToExe = Path.Combine(pathToExe, NugetPackagesFolder);
             pathToExe = Path.Combine(pathToExe, OpenCoverFolderName);
@@ -24,7 +30,7 @@ namespace dotnet_opencover
             if (!Directory.Exists(pathToExe))
             {
                 Console.Error.WriteLine($"Couldn't find opencover folder at {pathToExe}. Have you used dotnet restore on a project with the opencover dependancy?");
-                return 1;
+                return 2;
             }
 
             // Get the highest value (will have argument later)
@@ -36,7 +42,7 @@ namespace dotnet_opencover
             if (!File.Exists(pathToExe))
             {
                 Console.Error.WriteLine($"Couldn't find {OpenCoverExecutable} at {pathToExe}");
-                return 1;
+                return 3;
             }            
 
             string[] escapedArgs = new string[args.Length];

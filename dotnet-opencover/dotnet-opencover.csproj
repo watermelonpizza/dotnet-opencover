@@ -11,5 +11,8 @@
       Supplies a "dotnet opencover" cli call wrapper around OpenCover executable located in the packages folder.
       This does not bundle in open cover itself. You need to include that as a depandancy.
     </Description>
+    <RepositoryUrl>https://github.com/watermelonpizza/dotnet-opencover</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/watermelonpizza/argparse/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>cli, tools, opencover, coverage</PackageTags>
   </PropertyGroup>
 </Project>
