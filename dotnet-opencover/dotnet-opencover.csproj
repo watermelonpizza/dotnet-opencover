@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net45;netcoreapp1.0</TargetFrameworks>
+    <AssemblyName>dotnet-opencover</AssemblyName>
+    <Version>0.1.0</Version>
+    <Authors>Daniel Miller</Authors>
+    <Title>A cli dotnet wrapper for OpenCover (requires OpenCover dependancy)</Title>
+    <Description>
+      Supplies a "dotnet opencover" cli call wrapper around OpenCover executable located in the packages folder.
+      This does not bundle in open cover itself. You need to include that as a depandancy.
+    </Description>
+  </PropertyGroup>
+</Project>
