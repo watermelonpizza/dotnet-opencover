@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFrameworks>net45;netcoreapp1.0</TargetFrameworks>
     <AssemblyName>dotnet-opencover</AssemblyName>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
     <Authors>Daniel Miller</Authors>
     <Title>A cli dotnet wrapper for OpenCover (requires OpenCover dependancy)</Title>
     <Description>

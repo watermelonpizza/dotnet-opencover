@@ -46,8 +46,12 @@ namespace dotnet_opencover
                 pathToExe = Path.Combine(pathToExe, Directory.GetDirectories(pathToExe).OrderByDescending(d => d).First());
             }
 
+            // Older versions don't use the nuget tools folder system
+            if (Directory.Exists(Path.Combine(pathToExe, "tools")))
+            {
+                pathToExe = Path.Combine(pathToExe, "tools");
+            }
 
-            pathToExe = Path.Combine(pathToExe, "tools");
             pathToExe = Path.Combine(pathToExe, OpenCoverExecutable);
 
             if (!File.Exists(pathToExe))
