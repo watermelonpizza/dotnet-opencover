@@ -7,10 +7,6 @@ namespace dotnet_opencover
 {
     class Program
     {
-        static string DotNugetFolder = ".nuget";
-        static string NugetPackagesFolder = "packages";
-        static string OpenCoverFolderName = "opencover";
-        static string ToolFolder = "tools";
         static string OpenCoverExecutable = "OpenCover.Console.exe";
 
         static int Main(string[] args)
@@ -23,9 +19,7 @@ namespace dotnet_opencover
                 return 1;
             }
 
-            var pathToExe = Path.Combine(userProfile, DotNugetFolder);
-            pathToExe = Path.Combine(pathToExe, NugetPackagesFolder);
-            pathToExe = Path.Combine(pathToExe, OpenCoverFolderName);
+            var pathToExe = Path.Combine(userProfile, ".nuget", "packages", "opencover");
 
             if (!Directory.Exists(pathToExe))
             {
@@ -33,10 +27,27 @@ namespace dotnet_opencover
                 return 2;
             }
 
-            // Get the highest value (will have argument later)
-            pathToExe = Path.Combine(pathToExe, Directory.GetDirectories(pathToExe).OrderByDescending(d => d).First());
+            // Can specify a specific version using "dotnet opencover --opencover-verison x.x.x <opencover arguments>"
+            if (args?.Length > 1 && args[0] == "--opencover-version")
+            {
+                var availableVersions = Directory.GetDirectories(pathToExe);
 
-            pathToExe = Path.Combine(pathToExe, ToolFolder);
+                pathToExe = Path.Combine(pathToExe, args[1]);
+
+                if (!Directory.Exists(pathToExe))
+                {
+                    Console.Error.WriteLine($"Couldn't find the opencover version at {pathToExe}. Version specified: {args[1]}. Available: '{string.Join("', '", availableVersions)}'");
+                }
+
+                args = args.Skip(2).ToArray();
+            }
+            else
+            {
+                pathToExe = Path.Combine(pathToExe, Directory.GetDirectories(pathToExe).OrderByDescending(d => d).First());
+            }
+
+
+            pathToExe = Path.Combine(pathToExe, "tools");
             pathToExe = Path.Combine(pathToExe, OpenCoverExecutable);
 
             if (!File.Exists(pathToExe))
