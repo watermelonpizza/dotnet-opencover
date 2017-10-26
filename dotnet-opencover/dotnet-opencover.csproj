@@ -11,7 +11,7 @@
       See: https://github.com/watermelonpizza/dotnet-opencover/blob/master/README.md for details.
     </Description>
     <RepositoryUrl>https://github.com/watermelonpizza/dotnet-opencover</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/watermelonpizza/argparse/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/watermelonpizza/dotnet-opencover/blob/master/LICENSE</PackageLicenseUrl>
     <PackageTags>cli tools opencover coverage</PackageTags>
   </PropertyGroup>
 </Project>
