@@ -1,7 +1,7 @@
 # dotnet-opencover
 A simple wrapper nuget package to call opencover using the dotnet cli "dotnet opencover"
 
-_This does not bundle in open cover itself. You need to include that as a dependency._
+_This does not bundle in OpenCover itself. You need to include that as a dependency._
 
 ## Usage
 `dotnet opencover <opencover args>`
